@@ -51,6 +51,7 @@ const IBGM = class {
                 reversedData[i] = originalData[originalData.length - i - 1]
             }
         }
+
         return reversedBuffer
     }
 
@@ -106,7 +107,7 @@ const IBGM = class {
     // 再生方向を切り替える
     reversePlayback() {
         this.gain.gain.value = 0.01
-        this.fade(1, 2.5)
+        this.fade(this.volume, 2.5)
         const currentTime = this.getCurrentTime() // 現在の再生位置を取得
         this.isReversed = !this.isReversed // 再生方向を反転
         this.reset(currentTime) // 現在の位置から再生

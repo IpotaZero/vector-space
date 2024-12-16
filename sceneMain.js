@@ -37,7 +37,7 @@ const sceneMain = new (class {
 
         this.restart()
 
-        if (BGM != bgm_extra && stageId == 4) {
+        if (BGM != bgm_extra && stageId <= 3) {
             await Promise.all([bgm_extra.fetch(), BGM.fade(0.01, 2)])
             BGM = bgm_extra
             BGM.setVolume(0.5)
@@ -70,7 +70,7 @@ const sceneMain = new (class {
 
         this.timeDirection = 0
 
-        if (BGM.isReversed) bgm_test.reversePlayback()
+        if (BGM.isReversed) BGM.reversePlayback()
 
         document.body.style.filter = "invert(0)"
 
@@ -596,7 +596,8 @@ const updateStageData = () => {
 let stageId = 0
 
 const invertWorld = (b) => {
-    bgm_test.reversePlayback()
+    BGM.reversePlayback()
+
     se_reverse.play()
 
     sceneMain.timeDirection = !b
