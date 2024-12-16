@@ -37,7 +37,7 @@ const sceneMain = new (class {
 
         this.restart()
 
-        if (BGM != bgm_extra && stageId <= 3) {
+        if (BGM != bgm_extra && stageId >= 3) {
             await Promise.all([bgm_extra.fetch(), BGM.fade(0.01, 2)])
             BGM = bgm_extra
             BGM.setVolume(0.5)
