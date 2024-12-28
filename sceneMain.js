@@ -39,12 +39,14 @@ const sceneMain = new (class {
 
         if (BGM != bgm_extra && stageId >= 3) {
             await Promise.all([bgm_extra.fetch(), BGM.fade(0.01, 2)])
+            BGM.pause()
             BGM = bgm_extra
             BGM.setVolume(0.5)
             BGM.reset()
             BGM.play()
         } else if (BGM == bgm_ame && stageId > 0) {
             await Promise.all([bgm_test.fetch(), BGM.fade(0.01, 2)])
+            BGM.pause()
             BGM = bgm_test
             BGM.setVolume(0.5)
             BGM.reset()
